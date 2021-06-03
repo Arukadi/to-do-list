@@ -1,0 +1,41 @@
+<div class="card p-1 mb-4">
+    <div class="d-flex card-body">
+        <div class="action">
+            <div *ngIf="isCancel else cancelBlock">
+                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Senha para Cancelamento</h5>
+                                <button #closebutton type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div *ngIf="hasError" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    {{msgError}}
+                                </div>
+                                <input [(ngModel)]="password" type="password" class="form-control mb-3" placeholder="Senha" aria-label="Senha">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" id="closeModal" (click)="taskAction()">Confirmar</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-template #cancelBlock>
+                <button (click)="taskAction()" type="button" class="btn btn-outline-success">
+                    <i class="bi bi-check-lg"></i>
+                </button>
+            </ng-template>
+        </div>
+        <div>
+            <p class="card-text">{{task.description}}</p>
+            <p class="card-text text-ligth mt-4 mb-0">Responsável: <span class="bold ">{{task.accountable}}</span></p>
+            <p class="card-text text-ligth">E-mail: <span class="bold ">{{task.email}}</span></p>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,11 @@
 # ToDoList
 
+Code Challenge realizado para a equipe a Saipos
+
+OBS: Não consegui finalizar o back-end onde deveria realizar uma conexão com o banco de dados e retornar as respostas para o front-end. Cheguei a fazer a estrutura porém não consegui configurar a conexão com o banco de dados utilizando o docker.
+
+=====================================================
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.2.
 
 ## Development server

@@ -1,0 +1,16 @@
+.text-ligth {
+    color: #586069;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.card-body .action {
+    margin-right: 12px;
+}
+
+.customModal {
+    font-size: 1.6rem !important;
+    color: #586069 !important;
+}

@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="d-flex card-header justify-content-between align-items-center p-5 ">
+        <div class="d-flex text align-items-center">
+            <div class="count">
+                <span>{{tasks?.length}}</span>
+            </div>
+            <span>{{title}}</span>
+        </div>
+        <button *ngIf="showWithoutTask" (click)="getRandomDogFacts()" type="button" class="btn btn-outline-secondary">Estou sem Tarefas</button>
+    </div>
+    <div class="card-body p-5 ">
+        <div *ngIf="showAddTask" class="card p-1 mb-4">
+            <div class="card-body ">
+                <div *ngIf="hasError" class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{msgError}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                <input [(ngModel)]="accountable" type="text" class="form-control mb-3" placeholder="Responsável" aria-label="Username ">
+                <input [(ngModel)]="email" type="text" class="form-control mb-3" placeholder="E-mail" aria-label="Username ">
+                <textarea [(ngModel)]="description" class="form-control mb-4" placeholder="Descrição" aria-label="With textarea "></textarea>
+                <button type="button" class="btn btn-primary mg-8" (click)="addTask();">
+                    Add
+                </button>
+                <button type="button" class="btn btn-outline-secondary" (click)="clear()">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+        <app-task (action)="removeTaskFromList($event)" *ngFor="let task of tasks" [task]="task" [isCancel]="isCancel">
+        </app-task>
+    </div>
+</div>
